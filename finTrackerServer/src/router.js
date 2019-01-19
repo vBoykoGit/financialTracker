@@ -43,9 +43,12 @@ export const setRoutes = (app) => {
     //Amount - get
     app.get("/amount", (req, res) => {
         Amount.findOne().then(amount => {
+            if (!amount) {
+                throw new Error('Amount not found')
+            }
             res.send(amount);
         }).catch(err => {
-            res.status(400).send(err.errors);
+            res.status(400).send({ error: err.toString() });
         });
     });
 
@@ -55,7 +58,7 @@ export const setRoutes = (app) => {
         Amount.findOneAndUpdate({}, amountObject, { new: true, upsert: true, setDefaultsOnInsert: true, useFindAndModify: false }).then(item => {
             res.send(item);
         }).catch(err => {
-            res.status(400).send(err.errors);
+            res.status(400).send(err);
         });
     });
 }

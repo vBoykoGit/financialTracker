@@ -1,0 +1,8 @@
+.amountFormContent {
+    width: 70%;
+}
+
+.formInput {
+    display: flex;
+    align-items: center;
+}

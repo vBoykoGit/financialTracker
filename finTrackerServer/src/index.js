@@ -1,11 +1,16 @@
 import { setRoutes } from './router';
 import { connectToDB } from './database';
+import cors from 'cors';
 const express = require("express");
 const bodyParser = require('body-parser');
 
 const port = 3001;
 
 const app = express();
+app.use(cors({
+    exposedHeaders: "*"
+}));
+
 connectToDB()
 
 app.use(bodyParser.json());

@@ -3,12 +3,21 @@
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": [{
-        "type": "node",
-        "request": "launch",
-        "name": "FinTrackerServer",
-        "runtimeExecutable": "nodemon",
-        "program": "${workspaceRoot}/finTrackerServer/src/start.js",
-        "restart": true
-    }]
+    "configurations": [
+
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "FinTrackerServer",
+            "runtimeExecutable": "nodemon",
+            "program": "${workspaceRoot}/finTrackerServer/src/start.js",
+            "restart": true
+        }, {
+            "type": "chrome",
+            "request": "launch",
+            "name": "FinTracker",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/fin-tracker/src/index.js"
+        }
+    ]
 }
