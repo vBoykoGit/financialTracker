@@ -1,0 +1,11 @@
+.operationFormContent {
+    width: 70%;
+}
+
+.operationFormContent>*+* {
+    margin-top: var(--commonSpace);
+}
+
+.right {
+    text-align: right;
+}

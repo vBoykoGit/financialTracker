@@ -1,26 +1,55 @@
 import { operationConstants } from '../constants/operationConstants';
+import _ from 'lodash'
+import { fetchThenProcess } from '../fetcher';
+import { startLoading, finishLoading } from './appActions';
+import { getAmount } from './amountActions';
 
-export function get() {
+export function getOperations() {
     return async dispatch => {
-        dispatch(getOperations())
+        dispatch(startLoading())
+        fetchThenProcess('/operations', 'GET')
+            .then((response) => {
+                parseAndHandleOperations(response, dispatch)
+                dispatch(finishLoading())
+            })
     };
-
-    function getOperations() {
-        return {
-            type: operationConstants.GET_OPERATIONS
-        }
-    }
 }
 
-export function set(amount) {
+export function newOperation(sum) {
     return async dispatch => {
-        dispatch(setOperations(amount))
-    };
+        console.log(sum);
 
-    function setOperations(amount) {
-        return {
-            type: operationConstants.ADD_OPERATIONS,
-            amount
-        }
+        dispatch(startLoading())
+        fetchThenProcess('/addOperation', 'POST', JSON.stringify({
+            sum,
+            date: new Date()
+        })).then((response) => {
+            parseAndHandleOperations(response, dispatch)
+            dispatch(finishLoading())
+        })
+    };
+}
+
+export function deleteOperation(operation) {
+    return async dispatch => {
+        dispatch(startLoading())
+        fetchThenProcess('/deleteOperation', 'POST', JSON.stringify(operation))
+            .then((response) => {
+                parseAndHandleOperations(response, dispatch)
+                dispatch(finishLoading())
+            })
+    };
+}
+
+const parseAndHandleOperations = (response, dispatch) => {
+    const operations = _.get(response, 'operations')
+    dispatch(setOperations(operations))
+    dispatch(getAmount())
+}
+
+const setOperations = (operations = []) => {
+    return {
+        type: operationConstants.SET_OPERATIONS,
+        operations
     }
 }

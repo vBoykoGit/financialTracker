@@ -1,6 +1,4 @@
-import {
-    amountConstants
-} from '../constants/amountConstants';
+import { amountConstants } from '../constants/amountConstants';
 import { fetchThenProcess } from '../fetcher';
 import _ from 'lodash'
 import { startLoading, finishLoading } from './appActions';
@@ -10,7 +8,7 @@ export function getAmount() {
         dispatch(startLoading())
         fetchThenProcess('/amount', 'GET')
             .then((response) => {
-                const amount = _.get(response, 'amount')
+                const amount = _.get(response, 'total')
                 const amountDay = _.get(response, 'amountDay')
                 const amountMonth = _.get(response, 'amountMonth')
                 dispatch(setAmount(amount, amountDay, amountMonth))
@@ -31,7 +29,7 @@ export function getAmount() {
 export function setAmount(amount) {
     return async dispatch => {
         console.log(amount);
-        
+
         dispatch(startLoading())
         fetchThenProcess('/addAmount', 'POST', JSON.stringify({
             total: amount

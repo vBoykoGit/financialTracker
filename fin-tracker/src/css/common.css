@@ -1,11 +1,22 @@
 :root {
     --commonGray: rgb(60, 60, 62);
     --commonRed: rgb(255, 0, 40);
+    --commonGreen: rgb(0, 233, 116);
+    --commonSpace: 0.7rem;
 }
 
 .redLine {
     background-color: var(--commonRed);
     height: 1rem;
+    margin: auto;
+    width: 100%;
+}
+
+.centerVertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .centerHorizontal {
@@ -24,6 +35,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.formInput {
+    display: flex;
+    align-items: center;
+}
+
+.formInput>*+* {
+    margin-left: var(--commonSpace);
 }
 
 .actionButton {
@@ -46,5 +66,13 @@
 }
 
 .green {
-    background-color: rgb(0, 233, 116);
+    background-color: var(--commonGreen);
+}
+
+.red {
+    background-color: var(--commonRed);
+}
+
+.gray {
+    background-color: var(--commonGray);
 }

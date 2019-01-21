@@ -2,7 +2,6 @@
     width: 70%;
 }
 
-.formInput {
-    display: flex;
-    align-items: center;
+.amountFormContent>*+* {
+    margin-top: var(--commonSpace);
 }

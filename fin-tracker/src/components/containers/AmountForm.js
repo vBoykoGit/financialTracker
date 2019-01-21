@@ -5,7 +5,7 @@ import NumberFormat from 'react-number-format';
 import '../../css/amountForm.css';
 import { setAmount } from '../../store/action/amountActions';
 
-const AmountForm = ({ isLoading, onSetPress }) => {
+const AmountForm = ({ isLoading, amount, onSetPress }) => {
     let amountValueObject
     return (<section className='form'>
         {isLoading ? <Loader
@@ -23,6 +23,8 @@ const AmountForm = ({ isLoading, onSetPress }) => {
                         decimalScale={2}
                         thousandSeparator={true}
                         fixedDecimalScale={true}
+                        allowNegative={false}
+                        value={amount}
                         onValueChange={(valueObject) => amountValueObject = valueObject}
                     />
                     <input className='actionButton green'
@@ -36,7 +38,8 @@ const AmountForm = ({ isLoading, onSetPress }) => {
         }
     </section>)
 }
-const mapStateToProps = ({ app }) => ({
+const mapStateToProps = ({ amount, app }) => ({
+    amount: amount.amount,
     isLoading: app.isLoading
 })
 

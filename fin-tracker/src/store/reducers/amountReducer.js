@@ -1,6 +1,6 @@
 import { amountConstants } from '../constants/amountConstants';
 
-const initialState = {};
+const initialState = {isAmount: true};
 
 const amount = (state = initialState, action = {
     type: null

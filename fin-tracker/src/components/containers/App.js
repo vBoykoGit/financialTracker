@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './css/app.css';
-import './css/common.css';
+import '../../css/app.css';
+import '../../css/common.css';
 import { connect } from "react-redux"
 import { HashRouter, Route, Switch } from 'react-router-dom'
-import { OperationPage, AmountPage } from './components/Pages';
-import { getAmount } from './store/action/amountActions';
+import { OperationPage, AmountPage } from '../Pages';
+import { getAmount } from '../../store/action/amountActions';
 
 class App extends Component {
   componentDidMount() {

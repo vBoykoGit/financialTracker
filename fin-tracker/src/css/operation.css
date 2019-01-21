@@ -1,0 +1,42 @@
+.operation {
+    display: flex;
+    justify-content: space-between;
+}
+
+.operation>*+* {
+    margin-left: 0.7rem;
+}
+
+.circle {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.plus {
+    height: 100%;
+    width: 100%;
+    content: "+";
+}
+
+.minus {
+    height: 100%;
+    width: 100%;
+    font-weight: bold;
+    content: "-";
+}
+
+.operationDetails {
+    flex-grow: 1;
+}
+
+.closeButton {
+    color: white;
+    font-weight: bold;
+    font-size: xx-large;
+    cursor: pointer;
+}
