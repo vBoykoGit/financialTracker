@@ -1,12 +1,15 @@
 # financialTracker
-To start server
-`
-cd /financialTracker/finTrackerServer/src
+Start server and mongo
+```
+mongod
+cd financialTracker/finTrackerServer/src
 node start.js
-`
+```
 
-To start client
-`
-cd /financialTracker/fin-tracker
+Start client
+```
+cd financialTracker/fin-tracker
 npm start
-`
+```
+
+Tested with Safari 12.0.1, Chrome 71.0
