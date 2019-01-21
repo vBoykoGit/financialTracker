@@ -12,18 +12,18 @@ export const monthOperationsSum = async function () {
     const start = moment().startOf('month').toDate();
     const end = moment().endOf('month').toDate();
     const operations = await Operation.find({ date: { $gte: start, $lt: end } }).exec()
-    return operations == null ? operations.map(item => parseFloat(item.sum)).reduce((a, b) => a + b, 0) : 0
+    return operations !== null ? operations.map(item => parseFloat(item.sum)).reduce((a, b) => a + b, 0) : 0
 }
 
 export const dayAmount = async (amount) => {
     const daySum = await todayOperationsSum()
     const daysInMonth = moment().daysInMonth()
-    return amount / daysInMonth - daySum
+    return parseFloat(amount / daysInMonth) + daySum
 }
 
 export const monthAmount = async (amount) => {
     const monthSum = await monthOperationsSum()
-    return amount - monthSum
+    return parseFloat(amount) + monthSum
 }
 
 export const calculateDayMonthAmount = async (amount) => {
@@ -31,6 +31,7 @@ export const calculateDayMonthAmount = async (amount) => {
     const amountDay = await dayAmount(amount.total)
     amount.amountMonth = amountMonth.toFixed(2)
     amount.amountDay = amountDay.toFixed(2)
+
     return amount
 }
 

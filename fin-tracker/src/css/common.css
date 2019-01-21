@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:400,600,800,900&subset=latin-ext');
+
 :root {
     --commonGray: rgb(60, 60, 62);
     --commonRed: rgb(255, 0, 40);
