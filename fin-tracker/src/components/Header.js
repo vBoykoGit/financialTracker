@@ -1,10 +1,12 @@
 import React from 'react';
 import '../css/header.css';
 import { NavLink } from 'react-router-dom'
+
 const selectedStyle = {
     backgroundColor: "white",
-    color: "slategray"
+    color: "black"
 }
+
 const Header = (props) =>
     <header className='header'>
         <nav className='headerContent'>

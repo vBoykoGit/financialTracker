@@ -6,6 +6,6 @@
     margin-top: var(--commonSpace);
 }
 
-.right {
-    text-align: right;
+.operationFormAmount {
+    text-align: center;
 }

@@ -13,12 +13,15 @@ class App extends Component {
   }
   render() {
     return (
-      <HashRouter>
-        <Switch>
-          <Route exact path="/" component={OperationPage} />
-          <Route path="/amount" component={AmountPage} />
-        </Switch>
-      </HashRouter>
+      <div className='app'>
+        <HashRouter>
+          <Switch>
+            <Route exact path="/" component={OperationPage} />
+            <Route path="/amount" component={AmountPage} />
+          </Switch>
+        </HashRouter>
+      </div>
+
     );
   }
 }

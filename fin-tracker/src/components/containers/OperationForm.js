@@ -12,8 +12,8 @@ class OperationForm extends Component {
         return (
             <section className='form'>
                 <div className='operationFormContent'>
-                    <div className='right'>You have {this.props.amountMonth}R left for the month</div>
-                    <div className='right'>{this.props.amountDay}R left for the day</div>
+                    <div className='operationFormAmount'>You have {this.props.amountMonth}R left for the month</div>
+                    <div className='operationFormAmount'>{this.props.amountDay}R left for the day</div>
                     <div className='redLine'></div>
                     <div className='formInput'>
                         <NumberFormat className='textInput'
